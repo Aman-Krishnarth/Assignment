@@ -169,13 +169,13 @@ const DragDropBuilder = () => {
   };
 
   const loadHandler = () => {
-    console.log(JSON.parse(localStorage.getItem("elements")));
+    // console.log(JSON.parse(localStorage.getItem("elements")));
     setElements(JSON.parse(localStorage.getItem("elements")));
   };
 
   const saveHandler = () => {
     localStorage.setItem("elements", JSON.stringify(elements));
-    console.log(elements);
+    // console.log(elements);
   };
 
   return (
@@ -183,8 +183,18 @@ const DragDropBuilder = () => {
       {/* Sidebar */}
       <div className="w-full  md:w-64 p-4 bg-white border-r ">
         <h2 className="mb-4 text-lg font-semibold text-center">Elements</h2>
-        <button onClick={loadHandler} className="bg-slate-300 rounded mx-4 px-3 py-2 my-2">Load</button>
-        <button onClick={saveHandler} className="bg-slate-300 rounded mx-4 px-3 py-2 my-2">Save</button>
+        <button
+          onClick={loadHandler}
+          className="bg-slate-300 rounded mx-4 px-3 py-2 my-2"
+        >
+          Load
+        </button>
+        <button
+          onClick={saveHandler}
+          className="bg-slate-300 rounded mx-4 px-3 py-2 my-2"
+        >
+          Save
+        </button>
         <DraggableItem
           type="Heading"
           icon={Type}
