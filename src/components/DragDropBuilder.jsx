@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Trash2, Move, Type, Image, Square, List, Edit } from "lucide-react";
+import { toast } from "react-toastify";
 
 const DraggableItem = ({ type, icon: Icon, onDragStart }) => {
   return (
@@ -171,10 +172,30 @@ const DragDropBuilder = () => {
   const loadHandler = () => {
     // console.log(JSON.parse(localStorage.getItem("elements")));
     setElements(JSON.parse(localStorage.getItem("elements")));
+    toast.success("Loaded successfully", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   };
 
   const saveHandler = () => {
     localStorage.setItem("elements", JSON.stringify(elements));
+    toast.success("Saved Successfully", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
     // console.log(elements);
   };
 
